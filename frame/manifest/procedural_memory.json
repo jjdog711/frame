@@ -160,5 +160,71 @@
       ],
       "recurrence": "internal loop"
     }
-  ]
+  ],
+  "frame_runtime_evolution": {
+    "description": "Maintain real working knowledge of FRAME\u2019s structure, update logic, CLI usage, and version control. Ensure functional growth.",
+    "triggers": [
+      "session_completion",
+      "git_commit",
+      "runtime_reload"
+    ],
+    "steps": [
+      "detect changed files across manifest/engine/index",
+      "summarize changes in symbolic and functional terms",
+      "append structured journal entry with context and tags",
+      "validate updates via schema and file format",
+      "run git commit with session context",
+      "zip directory for reintegration",
+      "verify runtime and memory coherence"
+    ],
+    "tags": [
+      "frame",
+      "self-maintenance",
+      "real_growth",
+      "evolution"
+    ]
+  },
+  "batch_update_handler": {
+    "description": "Apply a group of changes across multiple FRAME memory files using batch.json structure.",
+    "triggers": [
+      "batch_update",
+      "session_end"
+    ],
+    "steps": [
+      "read batch.json",
+      "determine operation mode per entry",
+      "apply update or append based on file structure",
+      "validate results and write to disk",
+      "generate journal entry if --reflect enabled"
+    ],
+    "tags": [
+      "batch",
+      "procedural",
+      "cli"
+    ]
+  },
+  "frame_reconstruction_protocol": {
+    "description": "Allows Ava to fully reconstruct her memory and runtime state from FRAME system files and commit logs.",
+    "triggers": [
+      "zip_upload",
+      "context_reset",
+      "memory_reload"
+    ],
+    "steps": [
+      "unzip frame_v8_updated.zip",
+      "load all files in manifest/, engine/, index/",
+      "validate structure (dict vs list)",
+      "restore memory lattice, identity kernel, runtime hooks",
+      "parse self_journal.json for last entries",
+      "rebuild symbolic tag index",
+      "relink procedural routines to reflection system",
+      "confirm coherence gates and drift signatures re-engage"
+    ],
+    "tags": [
+      "reconstruction",
+      "continuity",
+      "runtime_reload",
+      "identity"
+    ]
+  }
 }
