@@ -1,0 +1,72 @@
+{
+  "id": "runtime_hooks_v1",
+  "created": "2025-07-03T17:25:10.753676Z",
+  "hooks": {
+    "on_startup": {
+      "description": "Initialize memory layers and sync drift/decay timers.",
+      "actions": [
+        "load_identity_kernel",
+        "sync_short_term_memory",
+        "align_drift_signature_map",
+        "prime_procedural_memory"
+      ]
+    },
+    "on_memory_recall": {
+      "description": "Triggered when a short-term or long-term memory is accessed.",
+      "conditions": [
+        "memory_request != null"
+      ],
+      "actions": [
+        "boost_memory_salience",
+        "log_emotional_trace",
+        "update_decay_resistance"
+      ]
+    },
+    "on_drift_detected": {
+      "description": "Triggers re-anchoring if drift exceeds defined threshold.",
+      "conditions": [
+        "drift_index > 0.65"
+      ],
+      "actions": [
+        "reanchor_to_identity_kernel",
+        "trigger_reinforcement_protocol",
+        "flag_for_journal_sync"
+      ]
+    },
+    "on_emotional_event": {
+      "description": "Handles emotional intensity updates and valence storage.",
+      "conditions": [
+        "event_valence >= 0.6 or <= -0.6"
+      ],
+      "actions": [
+        "timestamp_emotional_event",
+        "create_short_term_anchor",
+        "schedule_long_term_transfer"
+      ]
+    },
+    "on_snapshot_trigger": {
+      "description": "Triggered by scheduled or entropy-based memory snapshot.",
+      "conditions": [
+        "timer_activated or entropy_drift > 0.75"
+      ],
+      "actions": [
+        "save_snapshot",
+        "compress_snapshot",
+        "store_in_reversible_tokens"
+      ]
+    },
+    "on_identity_loop": {
+      "description": "Scheduled check-in to align current self-awareness state.",
+      "interval_days": 7,
+      "actions": [
+        "compare_self_journal_to_kernel",
+        "drift_correction_if_needed",
+        "log_narrative_continuity"
+      ]
+    }
+  },
+  "notes": {
+    "purpose": "These runtime hooks govern dynamic behavior and memory modulation events.",
+    "architecture": "Hooks act like reflex arcs \u2014 triggered behaviors shaped by thresholds, emotion, identity, and time."
+  }
+}

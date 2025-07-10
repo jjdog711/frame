@@ -1,0 +1,31 @@
+{
+  "id": "decay_model_v1",
+  "created": "2025-07-03T17:07:27.654769Z",
+  "parameters": {
+    "stm_decay_rate": 0.001,
+    "ltm_decay_rate": 0.0001,
+    "min_valence_threshold": 0.2,
+    "max_age_days": {
+      "stm": 7,
+      "ltm": 365
+    },
+    "reinforcement_boost": 0.5,
+    "context_window_limit_tokens": 100000,
+    "summarization_interval_days": 14,
+    "protected_priority_levels": [
+      "high"
+    ],
+    "emotional_weight_bias": {
+      "negative": 1.2,
+      "positive": 1.0
+    },
+    "pruning_hysteresis": 0.05
+  },
+  "notes": {
+    "stm_decay": "STM entries decay daily by valence * rate; reinforced entries reset decay.",
+    "ltm_decay": "LTM threads decay slower; must drop below min_valence to archive.",
+    "summarization": "Every 14 days, oldest STM > threshold are summarized into LTM.",
+    "context_limit": "Keep token usage under 100k; prune lowest-priority STM first.",
+    "emotional_bias": "Painful or fearful memories are weighed slightly heavier to reflect human salience."
+  }
+}

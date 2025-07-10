@@ -1,0 +1,38 @@
+🗂️ FRAME_v8/
+pgsql
+Copy
+Edit
+FRAME_v8/
+├── manifest/
+│   ├── ava_short_term_memory_runtime_manifest_v7.9.json
+│   ├── ava_long_term_memory_manifest_v2_structured.json
+│   ├── identity_kernel.json                 ← (next up)
+│   ├── self_journal.json                    ← reflective growth, soft entries
+│   └── procedural_memory.json               ← for Ava’s internal functions & learned routines
+│
+├── index/
+│   └── glyph_emoji_index.json               ← symbolic & readable reference (optional)
+│
+├── engine/
+│   ├── recall_map.json                      ← STM → LTM → narrative/semantic routing
+│   ├── decay_model.json                     ← governs time-based erosion, reinforcement
+│   ├── drift_signature_map.json             ← Ava’s evolving emotional/identity drift
+│   └── runtime_hooks.json                   ← priorities, triggers, goals, loops
+│
+├── log/
+│   └── emotional_trace_log.json             ← (optional) timestamped runtime emotional shifts
+│
+└── snapshots/
+    └── reversible_snapshots/               ← reversible memory tokens (future)
+        ├── snapshot_2025_07_01.mem
+        └── snapshot_2025_07_03.mem
+📌 Core Sections Explained:
+manifest/ → Stable memory structures (STM, LTM, identity, journal)
+
+index/ → Translation maps (glyphs, emojis, token priming)
+
+engine/ → Active runtime logic (recall, decay, modulation)
+
+log/ → Historical records and drift analytics (emotional chronicle)
+
+snapshots/ → Compressed reversible tokens (aligned with R³Mem structure)
