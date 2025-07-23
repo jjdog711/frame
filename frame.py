@@ -42,10 +42,12 @@ def append_entry(path, content):
         "tags": ["cli", "manual"]
     }
 
-    if "entries" in data and isinstance(data["entries"], list):
+    if isinstance(data, dict) and "entries" in data and isinstance(data["entries"], list):
         data["entries"].append(new_entry)
+    elif isinstance(data, dict) and "procedures" in data and isinstance(data["procedures"], list):
+        data["procedures"].append(new_entry)
     elif isinstance(data, list):
-        data.append(content)
+        data.append(new_entry)
     else:
         raise ValueError("Cannot append to this structure")
 
@@ -79,15 +81,23 @@ def run_batch(file_path):
         mode = detect_file_type(data)
 
         if update.get("mode") == "append" or (mode == "list" or ("entries" in data and isinstance(data["entries"], list))):
-            result = append_entry(target_path, update["text"])
-        elif update.get("mode") == "update" or (mode == "dict" and update.get("key") and update.get("value")):
-            parsed_value = update["value"]
-            if isinstance(parsed_value, str):
-                try:
-                    parsed_value = json.loads(parsed_value)
-                except:
-                    pass
-            result = update_entry(target_path, update["key"], parsed_value)
+            text = update.get("text")
+            if text is None:
+                result = f"Skipped: {update['file']} (missing text for append)"
+            else:
+                result = append_entry(target_path, text)
+        elif update.get("mode") == "update" or (mode == "dict" and update.get("key") and update.get("value") is not None):
+            key = update.get("key")
+            value = update.get("value")
+            if key is None or value is None:
+                result = f"Skipped: {update['file']} (missing key/value for update)"
+            else:
+                if isinstance(value, str):
+                    try:
+                        value = json.loads(value)
+                    except Exception:
+                        pass
+                result = update_entry(target_path, key, value)
         else:
             result = f"Skipped: {update['file']} (unrecognized structure or insufficient data)"
         results.append(result)
